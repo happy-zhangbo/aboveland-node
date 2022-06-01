@@ -603,7 +603,7 @@ impl pallet_octopus_appchain::Config for Runtime {
 	type ClassId = ClassId;
 	type InstanceId = InstanceId;
 	type Uniques = OctopusUniques;
-	type Convertor = ();
+	type Convertor = pallet_octopus_appchain::traits_default_impl::ExampleConvertor<Runtime>;
 	type Currency = Balances;
 	type Assets = OctopusAssets;
 	type AssetBalance = AssetBalance;

@@ -254,6 +254,33 @@ fn testnet_genesis(
 						storage: Default::default(),
 					},
 				);
+				map.insert(
+					// H160 address of CI test runner account
+					H160::from_str("676873D38A2C5d41bb22BCe86e9F6cAFAee16176")
+						.expect("internal H160 is valid; qed"),
+					pallet_evm::GenesisAccount {
+						balance: U256::from_str("0xffffffffffffffffffffffffffffffff")
+							.expect("internal U256 is valid; qed"),
+						code: Default::default(),
+						nonce: Default::default(),
+						storage: Default::default(),
+					},
+				);
+				map.insert(
+					// H160 address of Alice dev account
+					// Derived from SS58 (42 prefix) address
+					// SS58: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
+					// hex: 0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d
+					// Using the full hex key, truncating to the first 20 bytes (the first 40 hex chars)
+					H160::from_str("014119971E452E6524f72Df3388436EC3edE692d")
+					.expect("internal H160 is valid; qed"),
+					pallet_evm::GenesisAccount {
+						balance: (2000000000000000 as u128 * 10_u128.pow(18)).into(),
+						code: Default::default(),
+						nonce: Default::default(),
+						storage: Default::default(),
+					},
+				);
 				map
 			},
 		},
